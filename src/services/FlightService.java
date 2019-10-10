@@ -63,6 +63,10 @@ public class FlightService implements XmlReader {
     }
 
     public List<Flight> getFlightsByCities(Integer originId, Integer destId) {
+        return getFlightsByCitiesFromGivenFlights(originId, destId, flights);
+    }
+
+    public List<Flight> getFlightsByCitiesFromGivenFlights(Integer originId, Integer destId, List<Flight> flights) {
         if (originId == null && destId != null) {
             return flights.stream()
                     .filter(flight -> flight.getDestination().getId() == destId)
@@ -77,5 +81,34 @@ public class FlightService implements XmlReader {
                             && flight.getOrigin().getId() == originId)
                     .collect(Collectors.toList());
         }
+    }
+
+    public List<Flight> getShortestFlightBetweenTwoCityByAirline(int originId, int destId, int airlineId) {
+        List<Flight> shortestFlights = getDirectFlights(originId, destId, airlineId);
+        if (shortestFlights.size() > 0) {
+            return shortestFlights;
+        }
+        getShortestFlightWithTransferByAirline(originId, destId, airlineId);
+
+        return shortestFlights;
+    }
+
+    private List<Flight> getDirectFlights(int originId, int destId, int airlineId) {
+        List<Flight> shortestFlights = getFlightsByCitiesFromGivenFlights(originId, destId, getFlightsByAirlineId(5));
+        shortestFlights = shortestFlights.stream()
+                .filter(flight -> flight.getAirline().getId() == airlineId)
+                .collect(Collectors.toList());
+        return shortestFlights;
+    }
+
+    private List<Flight> getShortestFlightWithTransferByAirline(int originId, int destId, int airlineId) {
+        List<Flight> result = new ArrayList<>();
+        List<Flight> allFlightsByAirline = getFlightsByAirlineId(airlineId);
+        if (getFlightsByCitiesFromGivenFlights(originId, null, allFlightsByAirline).size() == 0
+                || getFlightsByCitiesFromGivenFlights(null, destId, allFlightsByAirline).size() == 0) {
+            return result;
+        }
+
+        return result;
     }
 }
