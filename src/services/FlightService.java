@@ -7,6 +7,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -97,7 +98,11 @@ public class FlightService implements XmlReader {
         List<Flight> shortestFlights = getFlightsByCitiesFromGivenFlights(originId, destId, getFlightsByAirlineId(airlineId));
         shortestFlights = shortestFlights.stream()
                 .filter(flight -> flight.getAirline().getId() == airlineId)
+                .sorted(Comparator.comparingInt(Flight::getDistance))
                 .collect(Collectors.toList());
+        if (shortestFlights.size() > 1) {
+            shortestFlights.subList(1, shortestFlights.size()).clear();
+        }
         return shortestFlights;
     }
 

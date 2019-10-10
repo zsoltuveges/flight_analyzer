@@ -112,4 +112,18 @@
             <id>4</id>
         </destination>
     </flight>
+    <flight> <!--Budapest - Tokyo-->
+        <id>8</id>
+        <distance>90300</distance>
+        <timeInterval>5</timeInterval>
+        <airline>
+            <id>1</id>
+        </airline>
+        <origin>
+            <id>1</id>
+        </origin>
+        <destination>
+            <id>4</id>
+        </destination>
+    </flight>
 </flights>
