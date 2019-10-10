@@ -16,6 +16,8 @@ public class FlightAnalyzer {
 
     public void start() {
         City smallestCity = cityService.getSmallestCity();
+        City largestCity = cityService.getLargestCity();
         System.out.println(String.format("Legkissebb város: %s, %d lakos", smallestCity.getName(), smallestCity.getPopulation()));
+        System.out.println(String.format("Legnagyobb város: %s, %d lakos", largestCity.getName(), largestCity.getPopulation()));
     }
 }

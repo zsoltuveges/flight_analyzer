@@ -53,4 +53,10 @@ public class CityService implements XmlReader {
                 .sorted(Comparator.comparingInt(City::getPopulation))
                 .collect(Collectors.toList()).get(0);
     }
+
+    public City getLargestCity() {
+        return cities.stream()
+                .sorted(Comparator.comparingInt(City::getPopulation).reversed())
+                .collect(Collectors.toList()).get(0);
+    }
 }
