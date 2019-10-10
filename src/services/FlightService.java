@@ -13,7 +13,7 @@ public class FlightService implements XmlReader {
     private File flightsFile;
     private JAXBContext jaxbContext;
     private Unmarshaller jaxbUnmarshaller;
-    private String filePath = "resources/flights.xml";
+    private String filePath = "src/resources/flights.xml";
     private ArrayList<Flight> flights;
     private AirlineService airlineService;
     private CityService cityService;
@@ -44,5 +44,14 @@ public class FlightService implements XmlReader {
     public void readDataFromFile() throws JAXBException {
         Flights flightsModel = (Flights) jaxbUnmarshaller.unmarshal(flightsFile);
         flights = flightsModel.getFlights();
+        makeConnectionBetweenModels();
+    }
+
+    private void makeConnectionBetweenModels() {
+        flights.forEach(flight -> {
+            flight.setAirline(airlineService.getAirlineById(flight.getAirline().getId()));
+            flight.setOrigin(cityService.getCityById(flight.getOrigin().getId()));
+            flight.setDestination(cityService.getCityById(flight.getDestination().getId()));
+        });
     }
 }

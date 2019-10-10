@@ -13,7 +13,7 @@ public class CityService implements XmlReader {
     private File citiesFile;
     private JAXBContext jaxbContext;
     private Unmarshaller jaxbUnmarshaller;
-    private String filePath = "resources/cities.xml";
+    private String filePath = "src/resources/cities.xml";
     private ArrayList<City> cities;
 
     public CityService() {
@@ -40,5 +40,9 @@ public class CityService implements XmlReader {
     public void readDataFromFile() throws JAXBException {
         Cities citiesModel = (Cities) jaxbUnmarshaller.unmarshal(this.citiesFile);
         cities = citiesModel.getCities();
+    }
+
+    public City getCityById(int id) {
+        return cities.stream().filter((City city) -> city.getId() == id).findFirst().orElse(null);
     }
 }

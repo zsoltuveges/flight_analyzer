@@ -13,7 +13,7 @@ public class AirlineService implements XmlReader {
     private File airlinesFile;
     private JAXBContext jaxbContext;
     private Unmarshaller jaxbUnmarshaller;
-    private String filePath = "resources/airlines.xml";
+    private String filePath = "src/resources/airlines.xml";
     private ArrayList<Airline> airlines;
 
     public AirlineService() {
@@ -36,5 +36,13 @@ public class AirlineService implements XmlReader {
     public void readDataFromFile() throws JAXBException {
         Airlines airlinesModel = (Airlines) jaxbUnmarshaller.unmarshal(this.airlinesFile);
         airlines = airlinesModel.getAirlines();
+    }
+
+    public ArrayList<Airline> getAirlines() {
+        return airlines;
+    }
+
+    public Airline getAirlineById(int id) {
+        return airlines.stream().filter(airline -> airline.getId() == id).findFirst().orElse(null);
     }
 }
