@@ -3,31 +3,31 @@
     <city>
         <id>1</id>
         <name>Budapest</name>
-        <numberOfPeople>1756000</numberOfPeople>
+        <population>1756000</population>
     </city>
     <city>
         <id>2</id>
         <name>London</name>
-        <numberOfPeople>8136000</numberOfPeople>
+        <population>8136000</population>
     </city>
     <city>
         <id>3</id>
         <name>New York</name>
-        <numberOfPeople>8623000</numberOfPeople>
+        <population>8623000</population>
     </city>
     <city>
         <id>4</id>
         <name>Tokyo</name>
-        <numberOfPeople>9273000</numberOfPeople>
+        <population>9273000</population>
     </city>
     <city>
         <id>5</id>
         <name>Berlin</name>
-        <numberOfPeople>3575000</numberOfPeople>
+        <population>3575000</population>
     </city>
     <city>
         <id>6</id>
         <name>Dubai</name>
-        <numberOfPeople>3137000</numberOfPeople>
+        <population>3137000</population>
     </city>
 </cities>
