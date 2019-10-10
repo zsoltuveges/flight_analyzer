@@ -2,7 +2,7 @@
 <flights>
     <flight> <!--Budapest - London-->
         <distance>1400</distance>
-        <timeIntervall>150</timeIntervall>
+        <timeInterval>150</timeInterval>
         <airline>
             <id>3</id>
         </airline>
@@ -15,7 +15,7 @@
     </flight>
     <flight> <!--London - New York-->
         <distance>5500</distance>
-        <timeIntervall>400</timeIntervall>
+        <timeInterval>400</timeInterval>
         <airline>
             <id>1</id>
         </airline>
@@ -28,7 +28,7 @@
     </flight>
     <flight> <!--Dubai - Tokyo-->
         <distance>7900</distance>
-        <timeIntervall>550</timeIntervall>
+        <timeInterval>550</timeInterval>
         <airline>
             <id>5</id>
         </airline>
@@ -41,7 +41,7 @@
     </flight>
     <flight> <!--Budapest - Dubai-->
         <distance>4000</distance>
-        <timeIntervall>360</timeIntervall>
+        <timeInterval>360</timeInterval>
         <airline>
             <id>5</id>
         </airline>
