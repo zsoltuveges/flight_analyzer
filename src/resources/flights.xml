@@ -56,4 +56,60 @@
             <id>6</id>
         </destination>
     </flight>
+    <flight> <!--Budapest - London-->
+        <id>5</id>
+        <distance>4000</distance>
+        <timeInterval>360</timeInterval>
+        <airline>
+            <id>2</id>
+        </airline>
+        <origin>
+            <id>1</id>
+        </origin>
+        <destination>
+            <id>2</id>
+        </destination>
+    </flight>
+    <flight> <!--London - Dubai-->
+        <id>6</id>
+        <distance>5500</distance>
+        <timeInterval>415</timeInterval>
+        <airline>
+            <id>2</id>
+        </airline>
+        <origin>
+            <id>2</id>
+        </origin>
+        <destination>
+            <id>6</id>
+        </destination>
+    </flight>
+    <flight> <!--Dubai - Tokyo-->
+        <id>7</id>
+        <distance>7900</distance>
+        <timeInterval>550</timeInterval>
+        <airline>
+            <id>2</id>
+        </airline>
+        <origin>
+            <id>6</id>
+        </origin>
+        <destination>
+            <id>4</id>
+        </destination>
+    </flight>
+    <flight> <!--Budapest - Tokyo-->
+        <id>8</id>
+        <distance>9000</distance>
+        <timeInterval>1080</timeInterval>
+        <airline>
+            <id>1</id>
+        </airline>
+        <origin>
+            <id>1</id>
+        </origin>
+        <destination>
+            <id>4</id>
+        </destination>
+    </flight>
 </flights>

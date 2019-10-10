@@ -1,8 +1,6 @@
 package services;
 
-import models.City;
-import models.Flight;
-import models.Flights;
+import models.*;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -20,10 +18,12 @@ public class FlightService implements XmlReader {
     private ArrayList<Flight> flights;
     private AirlineService airlineService;
     private CityService cityService;
+    private GraphService graphService;
 
-    public FlightService(AirlineService airlineService, CityService cityService) {
+    public FlightService(AirlineService airlineService, CityService cityService, GraphService graphService) {
         this.airlineService = airlineService;
         this.cityService = cityService;
+        this.graphService = graphService;
         try {
             initParser();
             readDataFromFile();
@@ -88,13 +88,13 @@ public class FlightService implements XmlReader {
         if (shortestFlights.size() > 0) {
             return shortestFlights;
         }
-        getShortestFlightWithTransferByAirline(originId, destId, airlineId);
+        shortestFlights = getShortestFlightWithTransferByAirline(originId, destId, airlineId);
 
         return shortestFlights;
     }
 
     private List<Flight> getDirectFlights(int originId, int destId, int airlineId) {
-        List<Flight> shortestFlights = getFlightsByCitiesFromGivenFlights(originId, destId, getFlightsByAirlineId(5));
+        List<Flight> shortestFlights = getFlightsByCitiesFromGivenFlights(originId, destId, getFlightsByAirlineId(airlineId));
         shortestFlights = shortestFlights.stream()
                 .filter(flight -> flight.getAirline().getId() == airlineId)
                 .collect(Collectors.toList());
@@ -109,6 +109,24 @@ public class FlightService implements XmlReader {
             return result;
         }
 
+        Graph graph = new Graph();
+        boolean firstNode = true;
+        Node firstNodeModel = new Node(allFlightsByAirline.get(0));
+        for (Flight flight : allFlightsByAirline) {
+            Node node = new Node(flight);
+            firstNodeModel = firstNode ? node : firstNodeModel;
+            for (Flight neighborhoodFlight : getFlightsByCitiesFromGivenFlights(flight.getDestination().getId(), null, allFlightsByAirline)) {
+                node.addDestination(new Node(neighborhoodFlight), flight.getDistance());
+            }
+            graph.addNode(node);
+        }
+
+        graph = graphService.calculateShortestPathFromSource(graph, firstNodeModel);
+        graph.getNodes().forEach(node -> result.add(node.getFlight()));
         return result;
+    }
+
+    public Flight getFlightById(int id) {
+        return flights.stream().filter(flight -> flight.getId() == id).findFirst().orElse(null);
     }
 }
