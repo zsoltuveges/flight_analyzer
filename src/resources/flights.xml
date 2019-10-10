@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flights>
+    <flight> <!--Budapest - London-->
+        <distance>1400</distance>
+        <timeIntervall>150</timeIntervall>
+        <airline>
+            <id>3</id>
+        </airline>
+        <origin>
+            <id>1</id>
+        </origin>
+        <destination>
+            <id>2</id>
+        </destination>
+    </flight>
+    <flight> <!--London - New York-->
+        <distance>5500</distance>
+        <timeIntervall>400</timeIntervall>
+        <airline>
+            <id>1</id>
+        </airline>
+        <origin>
+            <id>2</id>
+        </origin>
+        <destination>
+            <id>3</id>
+        </destination>
+    </flight>
+    <flight> <!--Dubai - Tokyo-->
+        <distance>7900</distance>
+        <timeIntervall>550</timeIntervall>
+        <airline>
+            <id>5</id>
+        </airline>
+        <origin>
+            <id>6</id>
+        </origin>
+        <destination>
+            <id>4</id>
+        </destination>
+    </flight>
+    <flight> <!--Budapest - Dubai-->
+        <distance>4000</distance>
+        <timeIntervall>360</timeIntervall>
+        <airline>
+            <id>5</id>
+        </airline>
+        <origin>
+            <id>1</id>
+        </origin>
+        <destination>
+            <id>6</id>
+        </destination>
+    </flight>
+</flights>

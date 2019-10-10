@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<airlines>
+    <airline>
+        <id>1</id>
+        <name>KLM</name>
+    </airline>
+    <airline>
+        <id>2</id>
+        <name>Lufthansa</name>
+    </airline>
+    <airline>
+        <id>3</id>
+        <name>Wizz Air</name>
+    </airline>
+    <airline>
+        <id>4</id>
+        <name>American Airlines</name>
+    </airline>
+    <airline>
+        <id>5</id>
+        <name>Emirates</name>
+    </airline>
+</airlines>

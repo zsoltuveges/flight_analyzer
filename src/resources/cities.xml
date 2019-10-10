@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cities>
+    <city>
+        <id>1</id>
+        <name>Budapest</name>
+        <numberOfPeople>1756000</numberOfPeople>
+    </city>
+    <city>
+        <id>2</id>
+        <name>London</name>
+        <numberOfPeople>8136000</numberOfPeople>
+    </city>
+    <city>
+        <id>3</id>
+        <name>New York</name>
+        <numberOfPeople>8623000</numberOfPeople>
+    </city>
+    <city>
+        <id>4</id>
+        <name>Tokyo</name>
+        <numberOfPeople>9273000</numberOfPeople>
+    </city>
+    <city>
+        <id>5</id>
+        <name>Berlin</name>
+        <numberOfPeople>3575000</numberOfPeople>
+    </city>
+    <city>
+        <id>6</id>
+        <name>Dubai</name>
+        <numberOfPeople>3137000</numberOfPeople>
+    </city>
+</cities>
