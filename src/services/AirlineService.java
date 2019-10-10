@@ -8,13 +8,14 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AirlineService implements XmlReader {
     private File airlinesFile;
     private JAXBContext jaxbContext;
     private Unmarshaller jaxbUnmarshaller;
     private String filePath = "src/resources/airlines.xml";
-    private ArrayList<Airline> airlines;
+    private List<Airline> airlines;
 
     public AirlineService() {
         try {
@@ -38,7 +39,7 @@ public class AirlineService implements XmlReader {
         airlines = airlinesModel.getAirlines();
     }
 
-    public ArrayList<Airline> getAirlines() {
+    public List<Airline> getAirlines() {
         return airlines;
     }
 
