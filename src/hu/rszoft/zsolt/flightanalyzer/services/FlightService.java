@@ -1,6 +1,6 @@
-package services;
+package hu.rszoft.zsolt.flightanalyzer.services;
 
-import models.*;
+import hu.rszoft.zsolt.flightanalyzer.models.*;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -84,12 +84,17 @@ public class FlightService implements XmlReader {
         }
     }
 
+    public List<Flight> getShortestFlightBetweenTwoCity(int originId, int destId) {
+        List<Flight> shortestFlights = getShortestFlightWithTransfer(originId, destId, null);
+        return shortestFlights;
+    }
+
     public List<Flight> getShortestFlightBetweenTwoCityByAirline(int originId, int destId, int airlineId) {
         List<Flight> shortestFlights = getDirectFlights(originId, destId, airlineId);
         if (shortestFlights.size() > 0) {
             return shortestFlights;
         }
-        shortestFlights = getShortestFlightWithTransferByAirline(originId, destId, airlineId);
+        shortestFlights = getShortestFlightWithTransfer(originId, destId, airlineId);
 
         return shortestFlights;
     }
@@ -106,18 +111,13 @@ public class FlightService implements XmlReader {
         return shortestFlights;
     }
 
-    private List<Flight> getShortestFlightWithTransferByAirline(int originId, int destId, int airlineId) {
+    private List<Flight> getShortestFlightWithTransfer(int originId, int destId, Integer airlineId) {
         List<Flight> result = new ArrayList<>();
-        List<Flight> allFlightsByAirline = getFlightsByAirlineId(airlineId);
+        List<Flight> allFlightsByAirline = airlineId == null ? getFlights() : getFlightsByAirlineId(airlineId);
         if (getFlightsByCitiesFromGivenFlights(originId, null, allFlightsByAirline).size() == 0
                 || getFlightsByCitiesFromGivenFlights(null, destId, allFlightsByAirline).size() == 0) {
             return result;
         }
-
-        List<Flight> originFlights = allFlightsByAirline.stream()
-                .filter(flight -> flight.getOrigin().getId() == originId)
-                .collect(Collectors.toList());
-
 
         Node firstNodeModel = new Node(null);
         boolean firstNode = true;

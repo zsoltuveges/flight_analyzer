@@ -1,17 +1,15 @@
-package models;
+package hu.rszoft.zsolt.flightanalyzer.models;
 
-public class City {
+public class Airline {
     private int id;
     private String name;
-    private int population;
 
-    public City() {
+    public Airline() {
     }
 
-    public City(int id, String name, int population) {
+    public Airline(int id, String name) {
         this.id = id;
         this.name = name;
-        this.population = population;
     }
 
     public int getId() {
@@ -30,20 +28,11 @@ public class City {
         this.name = name;
     }
 
-    public int getPopulation() {
-        return population;
-    }
-
-    public void setPopulation(int population) {
-        this.population = population;
-    }
-
     @Override
     public String toString() {
-        return "City{" +
+        return "Airline{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", population=" + population +
                 '}';
     }
 }

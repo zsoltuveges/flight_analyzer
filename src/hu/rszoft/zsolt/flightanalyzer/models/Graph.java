@@ -1,4 +1,4 @@
-package models;
+package hu.rszoft.zsolt.flightanalyzer.models;
 
 import java.util.HashSet;
 import java.util.Set;

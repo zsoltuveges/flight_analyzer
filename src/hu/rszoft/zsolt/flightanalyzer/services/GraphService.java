@@ -1,7 +1,7 @@
-package services;
+package hu.rszoft.zsolt.flightanalyzer.services;
 
-import models.Graph;
-import models.Node;
+import hu.rszoft.zsolt.flightanalyzer.models.Graph;
+import hu.rszoft.zsolt.flightanalyzer.models.Node;
 
 import java.util.*;
 import java.util.stream.Collectors;

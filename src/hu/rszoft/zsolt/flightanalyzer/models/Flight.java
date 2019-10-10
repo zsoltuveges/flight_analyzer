@@ -1,4 +1,4 @@
-package models;
+package hu.rszoft.zsolt.flightanalyzer.models;
 
 public class Flight {
     private int id;

@@ -1,4 +1,4 @@
-package services;
+package hu.rszoft.zsolt.flightanalyzer.services;
 
 import javax.xml.bind.JAXBException;
 

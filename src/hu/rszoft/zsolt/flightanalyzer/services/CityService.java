@@ -1,7 +1,7 @@
-package services;
+package hu.rszoft.zsolt.flightanalyzer.services;
 
-import models.Cities;
-import models.City;
+import hu.rszoft.zsolt.flightanalyzer.models.Cities;
+import hu.rszoft.zsolt.flightanalyzer.models.City;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

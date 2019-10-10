@@ -1,13 +1,12 @@
-package services;
+package hu.rszoft.zsolt.flightanalyzer.services;
 
-import models.Airline;
-import models.Airlines;
+import hu.rszoft.zsolt.flightanalyzer.models.Airline;
+import hu.rszoft.zsolt.flightanalyzer.models.Airlines;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 public class AirlineService implements XmlReader {
