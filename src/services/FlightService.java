@@ -114,16 +114,32 @@ public class FlightService implements XmlReader {
             return result;
         }
 
-        Graph graph = new Graph();
+        List<Flight> originFlights = allFlightsByAirline.stream()
+                .filter(flight -> flight.getOrigin().getId() == originId)
+                .collect(Collectors.toList());
+
+
+        Node firstNodeModel = new Node(null);
         boolean firstNode = true;
-        Node firstNodeModel = new Node(allFlightsByAirline.get(0));
+        Graph graph = new Graph();
         for (Flight flight : allFlightsByAirline) {
+            if (flight.getDestination().getId() == originId) {
+                continue;
+            }
             Node node = new Node(flight);
-            firstNodeModel = firstNode ? node : firstNodeModel;
-            for (Flight neighborhoodFlight : getFlightsByCitiesFromGivenFlights(flight.getDestination().getId(), null, allFlightsByAirline)) {
+
+            List<Flight> neighborhoodFlights = getFlightsByCitiesFromGivenFlights(flight.getDestination().getId(), null, allFlightsByAirline);
+
+            for (Flight neighborhoodFlight : neighborhoodFlights) {
                 node.addDestination(new Node(neighborhoodFlight), flight.getDistance());
             }
-            graph.addNode(node);
+            if (firstNode) {
+                firstNodeModel = node;
+                firstNode = false;
+            }
+            if (node.getAdjacentNodes().size() > 0 || node.getFlight().getDestination().getId() == destId) {
+                graph.addNode(node);
+            }
         }
 
         graph = graphService.calculateShortestPathFromSource(graph, firstNodeModel);

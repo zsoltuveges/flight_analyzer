@@ -3,10 +3,8 @@ package services;
 import models.Graph;
 import models.Node;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class GraphService {
     public Graph calculateShortestPathFromSource(Graph graph, Node source) {
@@ -16,6 +14,11 @@ public class GraphService {
         Set<Node> unsettledNodes = new HashSet<>();
 
         unsettledNodes.add(source);
+
+        if (graph.getNodes().stream().filter(node -> (node.getAdjacentNodes().size() > 0)).collect(Collectors.toList()).size() == 0) {
+            graph.setNodes(new HashSet<>());
+            return graph;
+        }
 
         while (unsettledNodes.size() != 0) {
             Node currentNode = getLowestDistanceNode(unsettledNodes);

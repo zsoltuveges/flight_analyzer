@@ -113,14 +113,56 @@
         </destination>
     </flight>
     <flight> <!--Budapest - Tokyo-->
-        <id>8</id>
+        <id>9</id>
         <distance>90300</distance>
-        <timeInterval>5</timeInterval>
+        <timeInterval>1080</timeInterval>
         <airline>
             <id>1</id>
         </airline>
         <origin>
             <id>1</id>
+        </origin>
+        <destination>
+            <id>4</id>
+        </destination>
+    </flight>
+    <flight> <!--Budapest - New York-->
+        <id>10</id>
+        <distance>7000</distance>
+        <timeInterval>720</timeInterval>
+        <airline>
+            <id>3</id>
+        </airline>
+        <origin>
+            <id>1</id>
+        </origin>
+        <destination>
+            <id>3</id>
+        </destination>
+    </flight>
+    <flight> <!--New York - Dubai-->
+        <id>11</id>
+        <distance>11000</distance>
+        <timeInterval>1080</timeInterval>
+        <airline>
+            <id>3</id>
+        </airline>
+        <origin>
+            <id>3</id>
+        </origin>
+        <destination>
+            <id>6</id>
+        </destination>
+    </flight>
+    <flight> <!--Dubai - Tokyo-->
+        <id>12</id>
+        <distance>7900</distance>
+        <timeInterval>550</timeInterval>
+        <airline>
+            <id>3</id>
+        </airline>
+        <origin>
+            <id>6</id>
         </origin>
         <destination>
             <id>4</id>
