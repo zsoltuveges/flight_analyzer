@@ -8,6 +8,8 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.stream.Collectors;
 
 public class CityService implements XmlReader {
     private File citiesFile;
@@ -44,5 +46,11 @@ public class CityService implements XmlReader {
 
     public City getCityById(int id) {
         return cities.stream().filter((City city) -> city.getId() == id).findFirst().orElse(null);
+    }
+
+    public City getSmallestCity() {
+        return cities.stream()
+                .sorted(Comparator.comparingInt(City::getPopulation))
+                .collect(Collectors.toList()).get(0);
     }
 }

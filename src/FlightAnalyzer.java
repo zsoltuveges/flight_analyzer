@@ -1,3 +1,4 @@
+import models.City;
 import services.AirlineService;
 import services.CityService;
 import services.FlightService;
@@ -14,8 +15,7 @@ public class FlightAnalyzer {
     }
 
     public void start() {
-        System.out.println(airlineService.getAirlines().toString());
-        System.out.println(flightService.getFlights().toString());
-        System.out.println(cityService.getCities().toString());
+        City smallestCity = cityService.getSmallestCity();
+        System.out.println(String.format("Legkissebb város: %s, %d lakos", smallestCity.getName(), smallestCity.getPopulation()));
     }
 }
