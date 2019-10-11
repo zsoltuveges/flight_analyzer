@@ -43,19 +43,19 @@ public class FlightAnalyzer {
             }
         }
 
-        System.out.println("");
-        System.out.println("Bármely légitársasággal a legrövidebb út:");
-        List<Flight> tempFlights = flightService.getShortestFlightBetweenTwoCity(smallestCity.getId(), largestCity.getId());
-        if (tempFlights.size() > 0) {
-            int sumTimeInterval = 0;
-            for (Flight flight : tempFlights) {
-                sumTimeInterval += flight.getTimeInterval();
-                printFlightWithAirline(flight);
-            }
-            printSumTimeInterval(sumTimeInterval);
-        } else {
-            System.out.println("            Nincs útvonal");
-        }
+//        System.out.println("");
+//        System.out.println("Bármely légitársasággal a legrövidebb út:");
+//        List<Flight> tempFlights = flightService.getShortestFlightBetweenTwoCity(smallestCity.getId(), largestCity.getId());
+//        if (tempFlights.size() > 0) {
+//            int sumTimeInterval = 0;
+//            for (Flight flight : tempFlights) {
+//                sumTimeInterval += flight.getTimeInterval();
+//                printFlightWithAirline(flight);
+//            }
+//            printSumTimeInterval(sumTimeInterval);
+//        } else {
+//            System.out.println("            Nincs útvonal");
+//        }
     }
 
     private void printFlight(Flight flight) {
